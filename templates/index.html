@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blogs</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+                {% for msg in messages %}
+                    <h4 style="color: green;">{{ msg }}</h4>
+                {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% for blog in blogs %}
+        <p>from: {{blog["author"]}}</p>
+        <p>text: {{blog["text"]}}</p>
+        <br>
+    {% endfor %}
+    <a href="/create/blog">write everything in yout mind!!</a>
+</body>
+</html>
